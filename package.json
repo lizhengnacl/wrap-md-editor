@@ -1,0 +1,19 @@
+{
+  "name": "dx-open-platform-markdown-editor",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.2.1",
+    "require-all": "^2.2.0"
+  },
+  "devDependencies": {
+    "bower": "^1.8.0"
+  }
+}
