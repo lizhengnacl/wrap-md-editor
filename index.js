@@ -8,22 +8,25 @@
 require('./bower_components/editor.md/css/editormd.css');
 var editormd = require('./bower_components/editor.md/editormd');
 
-// jQuery可能其他地方已经引入，这么做，可以合并打包
+// 可能其他地方已经引入，这么做，可以合并打包
 require('jquery');
+require('underscore');
 
 // codemirror
 require('./bower_components/editor.md/lib/codemirror/codemirror.min.js');
 require('./bower_components/editor.md/lib/codemirror/modes.min.js');
 require('./bower_components/editor.md/lib/codemirror/addons.min.js');
 
+// lib
+require('./bower_components/editor.md/lib/flowchart.min');
+require('./bower_components/editor.md/lib/jquery.flowchart.min');
+require('./bower_components/editor.md/lib/marked.min');
+require('./bower_components/editor.md/lib/prettify.min');
+require('./bower_components/editor.md/lib/raphael.min');
+require('./bower_components/editor.md/lib/sequence-diagram.min');
+
 // katex
 require('./lib/katex.min.js');
-
-require('require-all')({
-    dirname: __dirname + './bower_components/editor.md/lib',
-    // 过滤得到文件
-    filter: /(.+)\.js$/,
-});
 
 module.exports = {
     editormd: editormd
