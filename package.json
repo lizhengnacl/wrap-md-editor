@@ -1,6 +1,6 @@
 {
   "name": "wrap-md-editor",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -22,7 +22,12 @@
       "react"
     ],
     "plugins": [
-      ["transform-class-properties", {"spec": true}],
+      [
+        "transform-class-properties",
+        {
+          "spec": true
+        }
+      ],
       "transform-es2015-modules-umd",
       "transform-es2015-classes"
     ]
