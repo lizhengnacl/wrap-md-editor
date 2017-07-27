@@ -1,6 +1,6 @@
-### notes
+### Notes
 
-#### the html should include the following tags:
+#### The html template should includes the following tags.
 
 ```
 <link rel="stylesheet" href="https://s0.meituan.net/xm/open-platform-static/editormd/css/editormd.css" />
