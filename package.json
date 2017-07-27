@@ -9,9 +9,10 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
-    "babel-cli": "^6.24.1"
+    "object-assign": "^4.1.1"
   },
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-es2015-classes": "^6.24.1",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",

@@ -12,6 +12,7 @@
 'use strict';
 import React, {Component} from 'react';
 import assign from 'object-assign';
+
 let defaultValue = {
     id: 'op-editormd',
     width: "90%",
@@ -22,7 +23,7 @@ let defaultValue = {
     // previewTheme : "dark",
     // editorTheme : "pastel-on-dark",
     markdown: // testEditor.getMarkdown().replace(/`/g, '\\`')
-        `## 因果循环
+`## 因果循环
 \`\`\`
 console.log(123123)1
 \`\`\`
