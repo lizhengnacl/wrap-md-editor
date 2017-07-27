@@ -1,5 +1,5 @@
-publish:
-	rm -rf bower_components/editor.md/bower.json
-	rm -rf bower_components/editor.md/.bower.json
-	rm -rf bower_components/editor.md/package.json
-	npm publish
+install:
+	yarn install
+
+build: install
+	node_modules/.bin/babel index.js -d dist

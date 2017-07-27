@@ -2,17 +2,29 @@
   "name": "wrap-md-editor",
   "version": "0.1.1",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "license": "ISC",
   "dependencies": {
-    "jquery": "^3.2.1",
-    "underscore": "^1.8.3"
+    "babel-cli": "^6.24.1"
   },
   "devDependencies": {
-    "bower": "^1.8.0"
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-es2015-classes": "^6.24.1",
+    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
+    "babel-preset-react": "^6.24.1"
+  },
+  "babel": {
+    "presets": [
+      "react"
+    ],
+    "plugins": [
+      ["transform-class-properties", {"spec": true}],
+      "transform-es2015-modules-umd",
+      "transform-es2015-classes"
+    ]
   }
 }
