@@ -1,4 +1,4 @@
-### React Component Base on [Editor.md](https://github.com/pandao/editor.md)
+### React Component Based on [Editor.md](https://github.com/pandao/editor.md)
 
 #### The html template should includes the following tags.
 
