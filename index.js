@@ -11,72 +11,62 @@
 
 'use strict';
 import React, {Component} from 'react';
-
-export default class EditorMD extends Component {
-    static defaultProps = {
-        id: 'op-editormd',
-        width: "90%",
-        height: 740,
-        // 静态资源路径
-        path: 'https://s0.meituan.net/xm/open-platform-static/editormd/lib/',
-        // theme : "dark",
-        // previewTheme : "dark",
-        // editorTheme : "pastel-on-dark",
-        markdown: // testEditor.getMarkdown().replace(/`/g, '\\`')
-            `## 因果循环
+import assign from 'object-assign';
+let defaultValue = {
+    id: 'op-editormd',
+    width: "90%",
+    height: 740,
+    // 静态资源路径
+    path: 'https://s0.meituan.net/xm/open-platform-static/editormd/lib/',
+    // theme : "dark",
+    // previewTheme : "dark",
+    // editorTheme : "pastel-on-dark",
+    markdown: // testEditor.getMarkdown().replace(/`/g, '\\`')
+        `## 因果循环
 \`\`\`
-console.log(123123)
+console.log(123123)1
 \`\`\`
 
 # 123123`,
-        codeFold: true,
-        // syncScrolling : false,
-        saveHTMLToTextarea: true,    // 保存 HTML 到 Textarea
-        searchReplace: true,
-        // watch : false,                // 关闭实时预览
-        htmlDecode: "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启
-        // toolbar  : false,             //关闭工具栏
-        // previewCodeHighlight : false, // 关闭预览 HTML 的代码块高亮，默认开启
-        emoji: true,
-        taskList: true,
-        tocm: true,         // Using [TOCM]
-        tex: true,                   // 开启科学公式TeX语言支持，默认关闭
-        flowChart: true,             // 开启流程图支持，默认关闭
-        sequenceDiagram: true,       // 开启时序/序列图支持，默认关闭,
-        // dialogLockScreen : false,   // 设置弹出层对话框不锁屏，全局通用，默认为true
-        // dialogShowMask : false,     // 设置弹出层对话框显示透明遮罩层，全局通用，默认为true
-        // dialogDraggable : false,    // 设置弹出层对话框不可拖动，全局通用，默认为true
-        // dialogMaskOpacity : 0.4,    // 设置透明遮罩层的透明度，全局通用，默认值为0.1
-        // dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为#fff
-        imageUpload: true,
-        imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
-        imageUploadURL: "./php/upload.php",
-        onload: function(){},
-        gotoLine: (num) =>{},
-        show: () =>{},
-        hide: () =>{},
-        getWatch: () =>{},
-        unwatch: () =>{},
-        previewing: () =>{},
-        fullscreen: () =>{},
-        showToolbar: () =>{},
-        hideToolbar: () =>{},
-        getMarkdown: () =>{
-            return editormd.getMarkdown();
-        },
-        getHTML: () =>{
-            return editormd.getHTML();
-        }
+    codeFold: true,
+    // syncScrolling : false,
+    saveHTMLToTextarea: true,    // 保存 HTML 到 Textarea
+    searchReplace: true,
+    // watch : false,                // 关闭实时预览
+    htmlDecode: "style,script,iframe|on*",            // 开启 HTML 标签解析，为了安全性，默认不开启
+    // toolbar  : false,             //关闭工具栏
+    // previewCodeHighlight : false, // 关闭预览 HTML 的代码块高亮，默认开启
+    emoji: true,
+    taskList: true,
+    tocm: true,         // Using [TOCM]
+    tex: true,                   // 开启科学公式TeX语言支持，默认关闭
+    flowChart: true,             // 开启流程图支持，默认关闭
+    sequenceDiagram: true,       // 开启时序/序列图支持，默认关闭,
+    // dialogLockScreen : false,   // 设置弹出层对话框不锁屏，全局通用，默认为true
+    // dialogShowMask : false,     // 设置弹出层对话框显示透明遮罩层，全局通用，默认为true
+    // dialogDraggable : false,    // 设置弹出层对话框不可拖动，全局通用，默认为true
+    // dialogMaskOpacity : 0.4,    // 设置透明遮罩层的透明度，全局通用，默认值为0.1
+    // dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为#fff
+    imageUpload: true,
+    imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+    imageUploadURL: "./php/upload.php",
+    onload: function(){}
+};
+export default class EditorMD extends Component {
+    static defaultProps = {
+        config: {}
     };
 
     componentDidMount(){
+        let {config} = this.props;
+        config = assign({}, defaultValue, config);
+
         let {
             id, width, height, path, theme, previewTheme, editorTheme, markdown, codeFold, syncScrolling,
             saveHTMLToTextarea, searchReplace, watch, htmlDecode, toolbar, previewCodeHighlight, emoji,
             taskList, tocm, tex, flowChart, sequenceDiagram, dialogLockScreen, dialogShowMask, dialogDraggable,
-            dialogMaskOpacity, dialogMaskBgColor, imageUpload, imageFormats, imageUploadURL, onload,
-            gotoLine, show, hide, getWatch, unwatch, previewing, fullscreen, showToolbar, hideToolbar, getMarkdown, getHTML
-        } = this.props;
+            dialogMaskOpacity, dialogMaskBgColor, imageUpload, imageFormats, imageUploadURL, onload
+        } = config;
 
         let editor = editormd(id, {
             width: width,
@@ -108,14 +98,16 @@ console.log(123123)
             imageUpload: imageUpload,
             imageFormats: imageFormats,
             imageUploadURL: imageUploadURL,
-            onload: () => {
-                this.props.onload(editor, this);
+            onload: function(){
+                onload(editor, this);
             }
         });
     }
 
     render(){
-        let {id} = this.props;
-        return (<div id={id}></div>);
+        let {config} = this.props;
+        config = assign({}, defaultValue, config);
+
+        return (<div id={config.id}></div>);
     }
 }
