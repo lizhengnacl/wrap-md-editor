@@ -2,11 +2,11 @@
 
 #### The html template should includes the following tags.
 
-css
+##### css
 ```
 <link rel="stylesheet" href="https://s0.meituan.net/xm/open-platform-static/editormd/css/editormd.css" />
 ```
-js
+##### js
 ```
 <script src="//s0.meituan.net/xm/static/jquery/1.11.3/jquery.min.js"></script>
 
@@ -31,8 +31,9 @@ npm install wrap-md-editor -S
 
 #### Example
 
-the edit mode
+##### the edit mode
 <img src="http://7ximbf.com1.z0.glb.clouddn.com/FpaB-GQqpGZe2FMgq7kYTd1kv0By" width="850px"/>
+
 ```
 import React, {Component} from 'react';
 import {render} from 'react-dom';
@@ -58,8 +59,10 @@ render(
     document.querySelector('#root')
 );
 ```
-the show mode
+
+##### the show mode
 <img src="http://7ximbf.com1.z0.glb.clouddn.com/FqaUzavIAfRaoEH_JubArv6fCn3I" width="850px"/>
+
 ```
 import React, {Component} from 'react';
 import {render} from 'react-dom';
@@ -80,5 +83,6 @@ render(
     document.querySelector('#root')
 );
 ```
+
 #### Doc
 Read the [document](https://pandao.github.io/editor.md/examples/full.html) for detail.
