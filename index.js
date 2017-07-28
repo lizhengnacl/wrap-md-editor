@@ -13,8 +13,9 @@
 import React, {Component} from 'react';
 import assign from 'object-assign';
 
-let defaultValue = {
-    id: 'op-editormd',
+let defaultConfig = {
+    // 组件接入方，并不需要知道具体ID
+    id: 'EditorID' + new Date().getTime(),
     width: "90%",
     height: 740,
     // 静态资源路径
@@ -23,9 +24,9 @@ let defaultValue = {
     // previewTheme : "dark",
     // editorTheme : "pastel-on-dark",
     markdown: // testEditor.getMarkdown().replace(/`/g, '\\`')
-`## 因果循环
+        `## 因果循环
 \`\`\`
-console.log(123123)1
+console.log('万物皆有其因果')
 \`\`\`
 
 # 123123`,
@@ -53,14 +54,15 @@ console.log(123123)1
     imageUploadURL: "./php/upload.php",
     onload: function(){}
 };
-export default class EditorMD extends Component {
+
+class Editor extends Component {
     static defaultProps = {
         config: {}
     };
 
     componentDidMount(){
         let {config} = this.props;
-        config = assign({}, defaultValue, config);
+        config = assign({}, defaultConfig, config);
 
         let {
             id, width, height, path, theme, previewTheme, editorTheme, markdown, codeFold, syncScrolling,
@@ -68,6 +70,11 @@ export default class EditorMD extends Component {
             taskList, tocm, tex, flowChart, sequenceDiagram, dialogLockScreen, dialogShowMask, dialogDraggable,
             dialogMaskOpacity, dialogMaskBgColor, imageUpload, imageFormats, imageUploadURL, onload
         } = config;
+
+        // 静态资源地址修改
+        if(path !== defaultConfig.path){
+            console.warn('Editor warning: Static resource address has changed, if you know exactly what you\'re doing, ignore this warning');
+        }
 
         let editor = editormd(id, {
             width: width,
@@ -107,8 +114,85 @@ export default class EditorMD extends Component {
 
     render(){
         let {config} = this.props;
-        config = assign({}, defaultValue, config);
+        config = assign({}, defaultConfig, config);
 
         return (<div id={config.id}></div>);
     }
 }
+
+let defaultShowConfig = {
+    id: 'EditorShowID' + new Date().getTime(),
+    gfm                  : true,
+    toc                  : true,
+    tocm                 : true,
+    tocStartLevel        : 1,
+    tocTitle             : '目录',
+    tocDropdown          : true,
+    tocContainer         : '',
+    markdown             : 'what can i do for you',
+    markdownSourceCode   : true,
+    htmlDecode           : true,
+    autoLoadKaTeX        : true,
+    pageBreak            : true,
+    atLink               : true,
+    emailLink            : true,
+    tex                  : true,
+    taskList             : true,
+    emoji                : true,
+    flowChart            : true,
+    sequenceDiagram      : true,
+    previewCodeHighlight : true
+};
+
+class EditorShow extends Component {
+    static defaultProps = {
+        config: {}
+    };
+
+    componentDidMount(){
+        let {config} = this.props;
+        config = assign({}, defaultShowConfig, config);
+
+        let {
+            id, gfm, toc, tocm, tocStartLevel, tocTitle, tocDropdown, tocContainer, markdown, markdownSourceCode,
+            htmlDecode, autoLoadKaTeX, pageBreak, atLink, emailLink, tex, taskList, emoji, flowChart,
+            sequenceDiagram, previewCodeHighlight
+        } = config;
+
+        editormd.markdownToHTML(id, {
+            gfm: gfm,
+            toc: toc,
+            tocm: tocm,
+            tocStartLevel: tocStartLevel,
+            tocTitle: tocTitle,
+            tocDropdown: tocDropdown,
+            tocContainer: tocContainer,
+            markdown: markdown,
+            markdownSourceCode: markdownSourceCode,
+            htmlDecode: htmlDecode,
+            autoLoadKaTeX: autoLoadKaTeX,
+            pageBreak: pageBreak,
+            atLink: atLink,    // for @link
+            emailLink: emailLink,    // for mail address auto link
+            tex: tex,
+            taskList: taskList,   // Github Flavored Markdown task lists
+            emoji: emoji,
+            flowChart: flowChart,
+            sequenceDiagram: sequenceDiagram,
+            previewCodeHighlight: previewCodeHighlight
+        });
+    }
+
+    render(){
+        let {config} = this.props;
+        config = assign({}, defaultShowConfig, config);
+
+        let {id} = config;
+        return (
+            <div id={id}/>
+        );
+    }
+}
+
+Editor.EditorShow = EditorShow;
+export default Editor;

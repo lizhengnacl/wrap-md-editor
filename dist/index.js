@@ -86,8 +86,9 @@
         if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
     }
 
-    let defaultValue = {
-        id: 'op-editormd',
+    let defaultConfig = {
+        // 组件接入方，并不需要知道具体ID
+        id: 'EditorID' + new Date().getTime(),
         width: "90%",
         height: 740,
         // 静态资源路径
@@ -98,7 +99,7 @@
         markdown: // testEditor.getMarkdown().replace(/`/g, '\\`')
         `## 因果循环
 \`\`\`
-console.log(123123)1
+console.log('万物皆有其因果')
 \`\`\`
 
 # 123123`,
@@ -127,20 +128,20 @@ console.log(123123)1
         onload: function () {}
     };
 
-    let EditorMD = function (_Component) {
-        _inherits(EditorMD, _Component);
+    let Editor = function (_Component) {
+        _inherits(Editor, _Component);
 
-        function EditorMD() {
-            _classCallCheck(this, EditorMD);
+        function Editor() {
+            _classCallCheck(this, Editor);
 
-            return _possibleConstructorReturn(this, (EditorMD.__proto__ || Object.getPrototypeOf(EditorMD)).apply(this, arguments));
+            return _possibleConstructorReturn(this, (Editor.__proto__ || Object.getPrototypeOf(Editor)).apply(this, arguments));
         }
 
-        _createClass(EditorMD, [{
+        _createClass(Editor, [{
             key: 'componentDidMount',
             value: function componentDidMount() {
                 let { config } = this.props;
-                config = (0, _objectAssign2.default)({}, defaultValue, config);
+                config = (0, _objectAssign2.default)({}, defaultConfig, config);
 
                 let {
                     id, width, height, path, theme, previewTheme, editorTheme, markdown, codeFold, syncScrolling,
@@ -148,6 +149,11 @@ console.log(123123)1
                     taskList, tocm, tex, flowChart, sequenceDiagram, dialogLockScreen, dialogShowMask, dialogDraggable,
                     dialogMaskOpacity, dialogMaskBgColor, imageUpload, imageFormats, imageUploadURL, onload
                 } = config;
+
+                // 静态资源地址修改
+                if (path !== defaultConfig.path) {
+                    console.warn('Editor warning: Static resource address has changed, if you know exactly what you\'re doing, ignore this warning');
+                }
 
                 let editor = editormd(id, {
                     width: width,
@@ -188,21 +194,115 @@ console.log(123123)1
             key: 'render',
             value: function render() {
                 let { config } = this.props;
-                config = (0, _objectAssign2.default)({}, defaultValue, config);
+                config = (0, _objectAssign2.default)({}, defaultConfig, config);
 
                 return _react2.default.createElement('div', { id: config.id });
             }
         }]);
 
-        return EditorMD;
+        return Editor;
     }(_react.Component);
 
-    Object.defineProperty(EditorMD, 'defaultProps', {
+    Object.defineProperty(Editor, 'defaultProps', {
         enumerable: true,
         writable: true,
         value: {
             config: {}
         }
     });
-    exports.default = EditorMD;
+
+
+    let defaultShowConfig = {
+        id: 'EditorShowID' + new Date().getTime(),
+        gfm: true,
+        toc: true,
+        tocm: true,
+        tocStartLevel: 1,
+        tocTitle: '目录',
+        tocDropdown: true,
+        tocContainer: '',
+        markdown: 'what can i do for you',
+        markdownSourceCode: true,
+        htmlDecode: true,
+        autoLoadKaTeX: true,
+        pageBreak: true,
+        atLink: true,
+        emailLink: true,
+        tex: true,
+        taskList: true,
+        emoji: true,
+        flowChart: true,
+        sequenceDiagram: true,
+        previewCodeHighlight: true
+    };
+
+    let EditorShow = function (_Component2) {
+        _inherits(EditorShow, _Component2);
+
+        function EditorShow() {
+            _classCallCheck(this, EditorShow);
+
+            return _possibleConstructorReturn(this, (EditorShow.__proto__ || Object.getPrototypeOf(EditorShow)).apply(this, arguments));
+        }
+
+        _createClass(EditorShow, [{
+            key: 'componentDidMount',
+            value: function componentDidMount() {
+                let { config } = this.props;
+                config = (0, _objectAssign2.default)({}, defaultShowConfig, config);
+
+                let {
+                    id, gfm, toc, tocm, tocStartLevel, tocTitle, tocDropdown, tocContainer, markdown, markdownSourceCode,
+                    htmlDecode, autoLoadKaTeX, pageBreak, atLink, emailLink, tex, taskList, emoji, flowChart,
+                    sequenceDiagram, previewCodeHighlight
+                } = config;
+
+                editormd.markdownToHTML(id, {
+                    gfm: gfm,
+                    toc: toc,
+                    tocm: tocm,
+                    tocStartLevel: tocStartLevel,
+                    tocTitle: tocTitle,
+                    tocDropdown: tocDropdown,
+                    tocContainer: tocContainer,
+                    markdown: markdown,
+                    markdownSourceCode: markdownSourceCode,
+                    htmlDecode: htmlDecode,
+                    autoLoadKaTeX: autoLoadKaTeX,
+                    pageBreak: pageBreak,
+                    atLink: atLink, // for @link
+                    emailLink: emailLink, // for mail address auto link
+                    tex: tex,
+                    taskList: taskList, // Github Flavored Markdown task lists
+                    emoji: emoji,
+                    flowChart: flowChart,
+                    sequenceDiagram: sequenceDiagram,
+                    previewCodeHighlight: previewCodeHighlight
+                });
+            }
+        }, {
+            key: 'render',
+            value: function render() {
+                let { config } = this.props;
+                config = (0, _objectAssign2.default)({}, defaultShowConfig, config);
+
+                let { id } = config;
+                return _react2.default.createElement('div', { id: id });
+            }
+        }]);
+
+        return EditorShow;
+    }(_react.Component);
+
+    Object.defineProperty(EditorShow, 'defaultProps', {
+        enumerable: true,
+        writable: true,
+        value: {
+            config: {}
+        }
+    });
+
+
+    Editor.EditorShow = EditorShow;
+    exports.default = Editor;
 });
