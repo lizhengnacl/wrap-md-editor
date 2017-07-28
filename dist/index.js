@@ -214,6 +214,7 @@ console.log('万物皆有其因果')
 
     let defaultShowConfig = {
         id: 'EditorShowID' + new Date().getTime(),
+        path: '//s0.meituan.net/xm/open-platform-static/editormd/lib/',
         gfm: true,
         toc: true,
         tocm: true,
@@ -254,31 +255,79 @@ console.log('万物皆有其因果')
                 let {
                     id, gfm, toc, tocm, tocStartLevel, tocTitle, tocDropdown, tocContainer, markdown, markdownSourceCode,
                     htmlDecode, autoLoadKaTeX, pageBreak, atLink, emailLink, tex, taskList, emoji, flowChart,
-                    sequenceDiagram, previewCodeHighlight
+                    sequenceDiagram, previewCodeHighlight, path
                 } = config;
 
-                editormd.markdownToHTML(id, {
-                    gfm: gfm,
-                    toc: toc,
-                    tocm: tocm,
-                    tocStartLevel: tocStartLevel,
-                    tocTitle: tocTitle,
-                    tocDropdown: tocDropdown,
-                    tocContainer: tocContainer,
-                    markdown: markdown,
-                    markdownSourceCode: markdownSourceCode,
-                    htmlDecode: htmlDecode,
-                    autoLoadKaTeX: autoLoadKaTeX,
-                    pageBreak: pageBreak,
-                    atLink: atLink, // for @link
-                    emailLink: emailLink, // for mail address auto link
-                    tex: tex,
-                    taskList: taskList, // Github Flavored Markdown task lists
-                    emoji: emoji,
-                    flowChart: flowChart,
-                    sequenceDiagram: sequenceDiagram,
-                    previewCodeHighlight: previewCodeHighlight
+                this._init(path, function () {
+                    editormd.markdownToHTML(id, {
+                        gfm: gfm,
+                        toc: toc,
+                        tocm: tocm,
+                        tocStartLevel: tocStartLevel,
+                        tocTitle: tocTitle,
+                        tocDropdown: tocDropdown,
+                        tocContainer: tocContainer,
+                        markdown: markdown,
+                        markdownSourceCode: markdownSourceCode,
+                        htmlDecode: htmlDecode,
+                        autoLoadKaTeX: autoLoadKaTeX,
+                        pageBreak: pageBreak,
+                        atLink: atLink, // for @link
+                        emailLink: emailLink, // for mail address auto link
+                        tex: tex,
+                        taskList: taskList, // Github Flavored Markdown task lists
+                        emoji: emoji,
+                        flowChart: flowChart,
+                        sequenceDiagram: sequenceDiagram,
+                        previewCodeHighlight: previewCodeHighlight
+                    });
                 });
+            }
+        }, {
+            key: '_init',
+            value: function _init(path, cb) {
+                function createDom(str) {
+                    return document.createElement(str);
+                }
+
+                var div = createDom('div');
+                var id = 'EditorInitDom' + new Date().getTime();
+                div.id = id;
+                div.style.display = 'none';
+
+                var textarea = createDom('textarea');
+                div.appendChild(textarea);
+
+                document.body.appendChild(div);
+                // 加载静态资源，避免手动引入
+                // Editor.md如果原生支持，就不用这样hack了
+                editormd(id, {
+                    path: path,
+                    codeFold: true,
+                    saveHTMLToTextarea: true, // 保存 HTML 到 Textarea
+                    searchReplace: true,
+                    htmlDecode: "style,script,iframe|on*", // 开启 HTML 标签解析，为了安全性，默认不开启
+                    emoji: true,
+                    taskList: true,
+                    tocm: true, // Using [TOCM]
+                    tex: true, // 开启科学公式TeX语言支持，默认关闭
+                    flowChart: true, // 开启流程图支持，默认关闭
+                    sequenceDiagram: true, // 开启时序/序列图支持，默认关闭,
+                    imageUpload: true,
+                    imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"]
+                });
+
+                // 检测静态资源是否加载完毕
+                var timer = setInterval(function () {
+                    try {
+                        if (_ && Diagram && flowchart) {
+                            clearInterval(timer);
+                            document.body.removeChild(div);
+
+                            cb();
+                        }
+                    } catch (e) {}
+                }, 100);
             }
         }, {
             key: 'render',
