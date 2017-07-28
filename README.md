@@ -9,18 +9,6 @@
 ##### js
 ```
 <script src="//s0.meituan.net/xm/static/jquery/1.11.3/jquery.min.js"></script>
-
-<!--show mode start-->
-<!-- if you do not need the show mode, you can ignore these tags.-->
-<script src="//s0.meituan.net/xm/open-platform-static/editormd/lib/marked.min.js"></script>
-<script src="//s0.meituan.net/xm/open-platform-static/editormd/lib/prettify.min.js"></script>
-<script src="//s0.meituan.net/xm/open-platform-static/editormd/lib/raphael.min.js"></script>
-<script src="//s0.meituan.net/xm/open-platform-static/editormd/lib/underscore.min.js"></script>
-<script src="//s0.meituan.net/xm/open-platform-static/editormd/lib/sequence-diagram.min.js"></script>
-<script src="//s0.meituan.net/xm/open-platform-static/editormd/lib/flowchart.min.js"></script>
-<script src="//s0.meituan.net/xm/open-platform-static/editormd/lib/jquery.flowchart.min.js"></script>
-<!--show mode end-->
-
 <script src="https://s0.meituan.net/xm/open-platform-static/editormd/editormd.js"></script>
 ```
 
