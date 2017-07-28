@@ -11,7 +11,7 @@ js
 <script src="//s0.meituan.net/xm/static/jquery/1.11.3/jquery.min.js"></script>
 
 <!--show mode start-->
-<!-- if you do not need the show mode, you can ignore these tags start-->
+<!-- if you do not need the show mode, you can ignore these tags.-->
 <script src="//s0.meituan.net/xm/open-platform-static/editormd/lib/marked.min.js"></script>
 <script src="//s0.meituan.net/xm/open-platform-static/editormd/lib/prettify.min.js"></script>
 <script src="//s0.meituan.net/xm/open-platform-static/editormd/lib/raphael.min.js"></script>
