@@ -13,7 +13,7 @@
 import React, {Component} from 'react';
 import assign from 'object-assign';
 
-let defaultConfig = {
+var defaultConfig = {
     // 组件接入方，并不需要知道具体ID
     id: 'EditorID' + new Date().getTime(),
     width: "90%",
