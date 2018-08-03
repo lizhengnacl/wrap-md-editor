@@ -61,10 +61,10 @@ class Editor extends Component {
     };
 
     componentDidMount(){
-        let {config} = this.props;
+        var {config} = this.props;
         config = assign({}, defaultConfig, config);
 
-        let {
+        var {
             id, width, height, path, theme, previewTheme, editorTheme, markdown, codeFold, syncScrolling,
             saveHTMLToTextarea, searchReplace, watch, htmlDecode, toolbar, previewCodeHighlight, emoji,
             taskList, tocm, tex, flowChart, sequenceDiagram, dialogLockScreen, dialogShowMask, dialogDraggable,
@@ -76,7 +76,7 @@ class Editor extends Component {
             console.warn('Editor warning: Static resource address has changed, if you know exactly what you\'re doing, ignore this warning');
         }
 
-        let editor = editormd(id, {
+        var editor = editormd(id, {
             width: width,
             height: height,
             path: path,
@@ -113,14 +113,14 @@ class Editor extends Component {
     }
 
     render(){
-        let {config} = this.props;
+        var {config} = this.props;
         config = assign({}, defaultConfig, config);
 
         return (<div id={config.id}></div>);
     }
 }
 
-let defaultShowConfig = {
+var defaultShowConfig = {
     id: 'EditorShowID' + new Date().getTime(),
     path: '//s0.meituan.net/xm/open-platform-static/editormd/lib/',
     gfm: true,
@@ -151,10 +151,10 @@ class EditorShow extends Component {
     };
 
     componentDidMount(){
-        let {config} = this.props;
+        var {config} = this.props;
         config = assign({}, defaultShowConfig, config);
 
-        let {
+        var {
             id, gfm, toc, tocm, tocStartLevel, tocTitle, tocDropdown, tocContainer, markdown, markdownSourceCode,
             htmlDecode, autoLoadKaTeX, pageBreak, atLink, emailLink, tex, taskList, emoji, flowChart,
             sequenceDiagram, previewCodeHighlight, path
@@ -234,10 +234,10 @@ class EditorShow extends Component {
     }
 
     render(){
-        let {config} = this.props;
+        var {config} = this.props;
         config = assign({}, defaultShowConfig, config);
 
-        let {id} = config;
+        var {id} = config;
         return (
             <div id={id}/>
         );
