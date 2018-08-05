@@ -1,6 +1,6 @@
 ### React Based Wrapper for [Editor.md](https://github.com/pandao/editor.md)
 
-#### The html template should includes the following tags:
+#### Your HTML template should includes the following tags:
 
 ##### CSS
 ```
