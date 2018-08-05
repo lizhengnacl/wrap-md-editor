@@ -1,31 +1,31 @@
-### React Component Based on [Editor.md](https://github.com/pandao/editor.md)
+### React Based Wrapper for [Editor.md](https://github.com/pandao/editor.md)
 
-#### The html template should includes the following tags.
+#### The html template should includes the following tags:
 
-##### css
+##### CSS
 ```
 <link rel="stylesheet" href="https://s0.meituan.net/xm/open-platform-static/editormd/css/editormd.css" />
 ```
-##### js
+##### JS
 ```
-<script src="//s0.meituan.net/xm/static/jquery/1.11.3/jquery.min.js"></script>
-<script src="https://s0.meituan.net/xm/open-platform-static/editormd/editormd.js"></script>
+<script src="../jquery.min.js"></script>
+<script src="../editormd.js"></script>
 ```
 
 ### Install
 ```
-npm install wrap-md-editor -S
+npm install react-editor-md
 ```
 
-#### Example
+#### Examples
 
-##### the edit mode
+##### Edit Mode
 <img src="http://7ximbf.com1.z0.glb.clouddn.com/FpaB-GQqpGZe2FMgq7kYTd1kv0By" width="850px"/>
 
 ```
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-import Editor from 'wrap-md-editor';
+import Editor from 'react-editor-md';
 
 render(
     <Editor config={
@@ -48,13 +48,13 @@ render(
 );
 ```
 
-##### the show mode
+##### Show Mode
 <img src="http://7ximbf.com1.z0.glb.clouddn.com/FqaUzavIAfRaoEH_JubArv6fCn3I" width="850px"/>
 
 ```
 import React, {Component} from 'react';
 import {render} from 'react-dom';
-import Editor from 'wrap-md-editor';
+import Editor from 'react-editor-md';
 
 render(
     <Editor.EditorShow config={
@@ -72,5 +72,5 @@ render(
 );
 ```
 
-#### Doc
-Read the [document](https://pandao.github.io/editor.md/examples/full.html) for detail.
+#### More Information
+Checkout the [Editor.md docs](https://pandao.github.io/editor.md/examples/full.html) for more information.
