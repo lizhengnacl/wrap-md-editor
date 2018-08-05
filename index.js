@@ -22,14 +22,8 @@ var defaultConfig = {
     path: 'https://s0.meituan.net/xm/open-platform-static/editormd/lib/',
     // theme : "dark",
     // previewTheme : "dark",
-    // editorTheme : "pastel-on-dark",
-    markdown: // testEditor.getMarkdown().replace(/`/g, '\\`')
-        `## 因果循环
-\`\`\`
-console.log('万物皆有其因果')
-\`\`\`
-
-# 123123`,
+    editorTheme : "pastel-on-dark",
+    markdown: 'Hello **World**!',
     codeFold: true,
     // syncScrolling : false,
     saveHTMLToTextarea: true,    // 保存 HTML 到 Textarea
