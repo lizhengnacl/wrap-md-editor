@@ -49,7 +49,7 @@ var defaultConfig = {
     onload: function(){}
 };
 
-class Editor extends Component {
+export class Editor extends Component {
     static defaultProps = {
         config: {}
     };
