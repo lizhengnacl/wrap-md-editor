@@ -4,12 +4,12 @@
 
 ##### CSS
 ```
-<link rel="stylesheet" href="https://s0.meituan.net/xm/open-platform-static/editormd/css/editormd.css" />
+<link rel="stylesheet" href="../assets/css/editormd.css" />
 ```
 ##### JS
 ```
-<script src="../jquery.min.js"></script>
-<script src="../editormd.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/editormd.js"></script>
 ```
 
 ### Install
@@ -35,7 +35,7 @@ render(
             \`\`\`
             console.log('what can i do for you')
             \`\`\`
-            
+
             # 123123`,
             onload: (editor, func) => {
                 let md = editor.getMarkdown();
@@ -64,7 +64,7 @@ render(
             \`\`\`
             console.log('what can i do for you')
             \`\`\`
-            
+
             # 123123`
         }
     }/>,
