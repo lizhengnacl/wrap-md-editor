@@ -1,6 +1,6 @@
 {
   "name": "react-editor-md",
-  "version": "1.0.8",
+  "version": "1.0.10",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -16,25 +16,12 @@
     "object-assign": "^4.1.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-plugin-transform-class-properties": "^6.24.1",
-    "babel-plugin-transform-es2015-classes": "^6.24.1",
-    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
-    "babel-preset-react": "^6.24.1"
+    "babel-cli": "6.26.0",
+    "babel-preset-react-app": "^3.1.1"
   },
   "babel": {
     "presets": [
-      "react"
-    ],
-    "plugins": [
-      [
-        "transform-class-properties",
-        {
-          "spec": true
-        }
-      ],
-      "transform-es2015-modules-umd",
-      "transform-es2015-classes"
+      "react-app"
     ]
   }
 }
