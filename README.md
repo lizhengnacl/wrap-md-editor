@@ -1,4 +1,5 @@
 ### React Based Wrapper for [Editor.md](https://github.com/pandao/editor.md)
+![Markdown-Editor](https://raw.githubusercontent.com/Fairbanks-io/markdown-editor/master/markdown-editor.png)
 
 #### Your HTML template should includes the following tags:
 
@@ -20,7 +21,6 @@ npm install react-editor-md
 #### Examples
 
 ##### Edit Mode
-<img src="http://7ximbf.com1.z0.glb.clouddn.com/FpaB-GQqpGZe2FMgq7kYTd1kv0By" width="850px"/>
 
 ```
 import React, {Component} from 'react';
@@ -49,7 +49,6 @@ render(
 ```
 
 ##### Show Mode
-<img src="http://7ximbf.com1.z0.glb.clouddn.com/FqaUzavIAfRaoEH_JubArv6fCn3I" width="850px"/>
 
 ```
 import React, {Component} from 'react';
