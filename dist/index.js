@@ -57,7 +57,8 @@ var defaultConfig = {
     imageUpload: true,
     imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
     imageUploadURL: "./php/upload.php",
-    onload: function onload() {}
+    onload: function onload() {},
+    onchange: function(){}
 };
 
 export var Editor = function (_Component) {
@@ -107,7 +108,8 @@ export var Editor = function (_Component) {
                 imageUpload = _config.imageUpload,
                 imageFormats = _config.imageFormats,
                 imageUploadURL = _config.imageUploadURL,
-                _onload = _config.onload;
+                _onload = _config.onload,
+                _onchange = _config.onchange;
 
             // 静态资源地址修改
 
@@ -147,6 +149,9 @@ export var Editor = function (_Component) {
                 imageUploadURL: imageUploadURL,
                 onload: function onload() {
                     _onload(editor, this);
+                },
+                onchange: function onchange() {
+                    _onchange(editor, this);
                 }
             });
         }
