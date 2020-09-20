@@ -11,8 +11,6 @@
 
 'use strict';
 
-var _jsxFileName = 'index.js';
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -58,7 +56,7 @@ var defaultConfig = {
     imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
     imageUploadURL: "./php/upload.php",
     onload: function onload() {},
-    onchange: function(){}
+    onchange: function onchange() {}
 };
 
 export var Editor = function (_Component) {
@@ -162,12 +160,7 @@ export var Editor = function (_Component) {
 
             config = assign({}, defaultConfig, config);
 
-            return React.createElement('div', { id: config.id, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 113
-                },
-                __self: this
-            });
+            return React.createElement('div', { id: config.id });
         }
     }]);
 
@@ -324,12 +317,7 @@ var EditorShow = function (_Component2) {
             var _config3 = config,
                 id = _config3.id;
 
-            return React.createElement('div', { id: id, __source: {
-                    fileName: _jsxFileName,
-                    lineNumber: 236
-                },
-                __self: this
-            });
+            return React.createElement('div', { id: id });
         }
     }]);
 
