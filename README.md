@@ -1,6 +1,8 @@
 ### React Based Wrapper for [Editor.md](https://github.com/pandao/editor.md)
 ![Markdown-Editor](https://raw.githubusercontent.com/Fairbanks-io/markdown-editor/master/markdown-editor.png)
 
+[Check out react-editor-md on NPM](https://www.npmjs.com/package/react-editor-md)
+
 #### Your HTML template should includes the following tags:
 
 ##### CSS
