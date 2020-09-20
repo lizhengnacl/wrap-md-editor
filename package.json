@@ -1,7 +1,7 @@
 {
   "name": "react-editor-md",
   "version": "1.0.12",
-  "description": "",
+  "description": "React Based Wrapper for Editor.md",
   "main": "dist/index.js",
   "scripts": {
     "build": "make build"
