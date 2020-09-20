@@ -46,7 +46,8 @@ var defaultConfig = {
     imageUpload: true,
     imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
     imageUploadURL: "./php/upload.php",
-    onload: function(){}
+    onload: function(){},
+    onchange: function(){},
 };
 
 export class Editor extends Component {
@@ -62,7 +63,7 @@ export class Editor extends Component {
             id, width, height, path, theme, previewTheme, editorTheme, markdown, codeFold, syncScrolling,
             saveHTMLToTextarea, searchReplace, watch, htmlDecode, toolbar, previewCodeHighlight, emoji,
             taskList, tocm, tex, flowChart, sequenceDiagram, dialogLockScreen, dialogShowMask, dialogDraggable,
-            dialogMaskOpacity, dialogMaskBgColor, imageUpload, imageFormats, imageUploadURL, onload
+            dialogMaskOpacity, dialogMaskBgColor, imageUpload, imageFormats, imageUploadURL, onload, onchange
         } = config;
 
         // 静态资源地址修改
@@ -102,6 +103,9 @@ export class Editor extends Component {
             imageUploadURL: imageUploadURL,
             onload: function(){
                 onload(editor, this);
+            },
+            onchange: function(){
+                onchange(editor, this);
             }
         });
     }
