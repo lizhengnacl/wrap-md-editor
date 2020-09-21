@@ -1,6 +1,6 @@
 {
   "name": "react-editor-md",
-  "version": "1.0.13",
+  "version": "1.0.14",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -8,7 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jonfairbanks/react-editor-md"
+    "url": "https://github.com/jonfairbanks/react-editor-md.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/@jonfairbanks"
   },
   "keywords": [],
   "license": "ISC",
