@@ -1,5 +1,5 @@
 {
-  "name": "@jonfairbanks/react-editor-md",
+  "name": "react-editor-md",
   "version": "1.0.17",
   "description": "",
   "main": "dist/index.js",
@@ -9,9 +9,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/jonfairbanks/react-editor-md.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com"
   },
   "keywords": [],
   "license": "ISC",
