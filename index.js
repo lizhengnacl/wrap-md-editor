@@ -19,7 +19,7 @@ var defaultConfig = {
     width: "90%",
     height: 740,
     // 静态资源路径
-    path: 'https://s0.meituan.net/xm/open-platform-static/editormd/lib/',
+    path: './assets/lib/',
     // theme : "dark",
     // previewTheme : "dark",
     editorTheme : "pastel-on-dark",
@@ -120,7 +120,7 @@ export class Editor extends Component {
 
 var defaultShowConfig = {
     id: 'EditorShowID' + new Date().getTime(),
-    path: '//s0.meituan.net/xm/open-platform-static/editormd/lib/',
+    path: './assets/lib/',
     gfm: true,
     toc: true,
     tocm: true,
