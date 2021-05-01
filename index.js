@@ -10,7 +10,7 @@
  */
 
 'use strict';
-import React, {Component} from 'react';
+import React from 'react';
 import assign from 'object-assign';
 
 var defaultConfig = {
@@ -50,7 +50,7 @@ var defaultConfig = {
     onchange: function(){},
 };
 
-export class Editor extends Component {
+export class Editor extends React.Component {
     static defaultProps = {
         config: {}
     };
@@ -143,7 +143,7 @@ var defaultShowConfig = {
     previewCodeHighlight: true
 };
 
-class EditorShow extends Component {
+class EditorShow extends React.Component {
     static defaultProps = {
         config: {}
     };

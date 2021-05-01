@@ -19,7 +19,7 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-import React, { Component } from 'react';
+import React from 'react';
 import assign from 'object-assign';
 
 var defaultConfig = {
@@ -28,7 +28,7 @@ var defaultConfig = {
     width: "90%",
     height: 740,
     // 静态资源路径
-    path: 'https://s0.meituan.net/xm/open-platform-static/editormd/lib/',
+    path: './assets/lib/',
     // theme : "dark",
     // previewTheme : "dark",
     editorTheme: "pastel-on-dark",
@@ -59,8 +59,8 @@ var defaultConfig = {
     onchange: function onchange() {}
 };
 
-export var Editor = function (_Component) {
-    _inherits(Editor, _Component);
+export var Editor = function (_React$Component) {
+    _inherits(Editor, _React$Component);
 
     function Editor() {
         _classCallCheck(this, Editor);
@@ -165,14 +165,14 @@ export var Editor = function (_Component) {
     }]);
 
     return Editor;
-}(Component);
+}(React.Component);
 
 Editor.defaultProps = {
     config: {}
 };
 var defaultShowConfig = {
     id: 'EditorShowID' + new Date().getTime(),
-    path: '//s0.meituan.net/xm/open-platform-static/editormd/lib/',
+    path: './assets/lib/',
     gfm: true,
     toc: true,
     tocm: true,
@@ -195,8 +195,8 @@ var defaultShowConfig = {
     previewCodeHighlight: true
 };
 
-var EditorShow = function (_Component2) {
-    _inherits(EditorShow, _Component2);
+var EditorShow = function (_React$Component2) {
+    _inherits(EditorShow, _React$Component2);
 
     function EditorShow() {
         _classCallCheck(this, EditorShow);
@@ -322,7 +322,7 @@ var EditorShow = function (_Component2) {
     }]);
 
     return EditorShow;
-}(Component);
+}(React.Component);
 
 EditorShow.defaultProps = {
     config: {}
